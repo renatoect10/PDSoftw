@@ -20,8 +20,10 @@ create table escola(
     idEscola int auto_increment,
     nome varchar(100) not null,
     municipio int not null,
+    gestor int not null,
     primary key (idEscola),
-    foreign key (municipio) references municipio(idMunicipio)
+    foreign key (municipio) references municipio(idMunicipio),
+    foreign key (gestor) references gestor(idGestor)
 );
 
 create table professor (
@@ -41,7 +43,6 @@ create table responsavel (
 create table gestor(
     idGestor int auto_increment,
     nome varchar(100) not null,
-    escola int not null,
     primary key(idGestor),
     foreign key (escola) references escola(idEscola)
 );
