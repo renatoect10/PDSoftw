@@ -43,8 +43,7 @@ create table responsavel (
 create table gestor(
     idGestor int auto_increment,
     nome varchar(100) not null,
-    primary key(idGestor),
-    foreign key (escola) references escola(idEscola)
+    primary key(idGestor)
 );
 
 create table noticia(
