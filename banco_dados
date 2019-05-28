@@ -1,0 +1,91 @@
+create database teste;
+use teste;
+
+create table aluno (
+  idAluno int auto_increment,
+  nome varchar(100) not null,
+  idade int not null,
+  curso varchar(100) not null,
+  primary key(idAluno)
+
+);
+
+create table municipio(
+   idMunicipio int auto_increment,
+   nome varchar(100) not null unique,
+   primary key(idMunicipio)
+);
+
+create table escola(
+    idEscola int auto_increment,
+    nome varchar(100) not null,
+    municipio int not null,
+    primary key (idEscola),
+    foreign key (municipio) references municipio(idMunicipio)
+);
+
+create table professor (
+    idProfessor int auto_increment,
+    nome varchar(100) not null,
+    primary key (idProfessor)
+);
+
+
+create table responsavel (
+    idResponsavel int auto_increment,
+    nome varchar(100) not null,
+    primary key(idResponsavel)
+
+);
+
+create table gestor(
+    idGestor int auto_increment,
+    nome varchar(100) not null,
+    escola int not null,
+    primary key(idGestor),
+    foreign key (escola) references escola(idEscola)
+);
+
+create table noticia(
+	idNoticia int auto_increment,
+  textoNoticia varchar(250) not null,
+	primary key(idNoticia)
+);
+
+create table loginAluno(
+  idLogin int auto_increment,
+  aluno int not null unique,
+  login varchar(20) not null,
+  senha varchar(12) not null,
+  primary key (idLogin),
+  foreign key(aluno) references aluno(idAluno)
+);
+
+create table professor_escola (
+    idProfessorEscola int auto_increment,
+    professor int not null,
+    escola int not null,
+    primary key(idProfessorEscola),
+    foreign key(professor) references professor(idProfessor),
+    foreign key(escola) references escola(idEscola)
+);
+
+create table responsavel_aluno(
+   idResponsavelAluno int auto_increment,
+   aluno int not null,
+   responsavel int not null,
+   primary key (idResponsavelAluno),
+   foreign key(aluno) references aluno(idAluno),
+   foreign key(responsavel) references responsavel(idResponsavel)
+);
+
+create table noticia_escola (
+   idNoticiaEscola int auto_increment,
+   noticia int not null,
+   escola int not null,
+   primary key (idNoticiaEscola),
+   foreign key(noticia) references noticia(idNoticia),
+   foreign key(escola) references escola(idEscola  )
+);
+	
+	
