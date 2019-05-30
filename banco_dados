@@ -7,7 +7,6 @@ create table aluno (
   idade int not null,
   curso varchar(100) not null,
   primary key(idAluno)
-
 );
 
 create table municipio(
@@ -32,7 +31,6 @@ create table professor (
     primary key (idProfessor)
 );
 
-
 create table responsavel (
     idResponsavel int auto_increment,
     nome varchar(100) not null,
@@ -52,11 +50,12 @@ create table noticia(
 	primary key(idNoticia)
 );
 
-create table loginAluno(
+create table login(
   idLogin int auto_increment,
-  aluno int not null unique,
+  usuario int not null unique,
   login varchar(20) not null,
   senha varchar(12) not null,
+  tipoUsuario varvhar(9) not null,
   primary key (idLogin),
   foreign key(aluno) references aluno(idAluno)
 );
