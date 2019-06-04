@@ -58,15 +58,6 @@ create table login(
   primary key (idLogin)
 );
 
-create table professor_escola (
-    idProfessorEscola int auto_increment,
-    professor int not null,
-    escola int not null,
-    primary key(idProfessorEscola),
-    foreign key(professor) references professor(idProfessor),
-    foreign key(escola) references escola(idEscola)
-);
-
 create table responsavel_aluno(
    idResponsavelAluno int auto_increment,
    aluno int not null,
