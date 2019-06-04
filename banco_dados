@@ -75,14 +75,4 @@ create table responsavel_aluno(
    foreign key(aluno) references aluno(idAluno),
    foreign key(responsavel) references responsavel(idResponsavel)
 );
-
-create table noticia_escola (
-   idNoticiaEscola int auto_increment,
-   noticia int not null,
-   escola int not null,
-   primary key (idNoticiaEscola),
-   foreign key(noticia) references noticia(idNoticia),
-   foreign key(escola) references escola(idEscola  )
-);
-	
 	
