@@ -55,9 +55,8 @@ create table login(
   usuario int not null unique,
   login varchar(20) not null,
   senha varchar(12) not null,
-  tipoUsuario varvhar(9) not null,
+  tipoUsuario varchar(9) not null,
   primary key (idLogin),
-  foreign key(aluno) references aluno(idAluno)
 );
 
 create table professor_escola (
