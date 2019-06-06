@@ -1,0 +1,81 @@
+create database teste;
+use teste;
+
+create table pessoa(
+  id int auto_increment,
+  nome varchar(100) not null,
+  idade int not null,
+  cpf String not null,
+  login String not null,
+  senha String not null,
+  tipoUsuario int not null,
+  primary key(id),
+
+  
+create table aluno (
+  id int auto_increment,
+  id_pessoa,
+  id_responsavel,
+  curso varchar(100) not null,
+  primary key(id),
+  foreign key(id_pessoa) references pessoa(id),
+  foreign key(id_responsavel) references responsavel(id)
+);
+
+create table municipio(
+   id int auto_increment,
+   nome varchar(100) not null unique,
+   primary key(id)
+);
+
+create table escola(
+    id int auto_increment,
+    nome varchar(100) not null,
+    id_municipio int not null,
+    id_gestor int not null,
+    primary key (id),
+    foreign key (id_municipio) references municipio(id),
+    foreign key (id_gestor) references gestor(id)
+);
+
+create table professor (
+    id int auto_increment,
+    id_pessoa int not null,
+	id_escola int not null,
+    primary key (idProfessor),
+	foreign key(id_pessoa) references pessoa(id)
+);
+
+create table responsavel (
+    id int auto_increment,
+	id_pessoa int not null,
+    primary key(idResponsavel),
+	foreign key(id_pessoa) references pessoa(id)
+
+);
+
+create table gestor(
+    id int auto_increment,
+    id_pessoa int not null,
+    primary key(id),
+	foreign key(id_pessoa) references pessoa(id)
+);
+
+create table noticia(
+	id int auto_increment,
+	id_escola int,
+	id_pessoa int not null
+	textoNoticia varchar(250) not null,
+	primary key(id),
+	foreign key(id_escola) references escola(id),
+	foreign key(id_pessoa) references pessoa(id)
+);
+
+create table responsavel_aluno(
+   id int auto_increment,
+   id_aluno int not null,
+   id_responsavel int not null,
+   primary key (id),
+   foreign key(id_aluno) references aluno(id),
+   foreign key(id_responsavel) references responsavel(id)
+);
