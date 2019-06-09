@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+<head>
+    <meta charset="UTF-8">
+    <title>Realizar Login</title>
+
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+<div class="container">
+
+ <form method="post" action="/aluno/realizar_login" class="form-login">
+     <h2 class="form-login-heading">Entre com o usuário</h2>
+
+     <div class="form-group">
+        <label>Login</label>
+        <input type="text" class="form-control" placeholder="Informe seu login" name = "usuario" width="100" required autofocus>
+    </div>
+    <div class="form-group">
+        <label>Senha</label>
+        <input type="password" class="form-control" placeholder="Senha" name = "senha">
+    </div>
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Entrar</button>
+ </form>
+
+</div>
+
+    <script type="text/javascript" src="webjars/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
