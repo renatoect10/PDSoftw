@@ -15,11 +15,9 @@ create table pessoa(
 create table aluno (
   id int auto_increment,
   id_pessoa,
-  id_responsavel,
   curso varchar(100) not null,
   primary key(id),
   foreign key(id_pessoa) references pessoa(id),
-  foreign key(id_responsavel) references responsavel(id)
 );
 
 create table municipio(
@@ -41,9 +39,10 @@ create table escola(
 create table professor (
     id int auto_increment,
     id_pessoa int not null,
-	id_escola int not null,
+    id_escola int not null,
     primary key (idProfessor),
-	foreign key(id_pessoa) references pessoa(id)
+    foreign key(id_pessoa) references pessoa(id)
+     foreign key(id_escola) references escola(id)
 );
 
 create table responsavel (
@@ -66,6 +65,7 @@ create table noticia(
 	id_escola int,
 	id_pessoa int not null
 	textoNoticia varchar(250) not null,
+	titulo String not null,
 	primary key(id),
 	foreign key(id_escola) references escola(id),
 	foreign key(id_pessoa) references pessoa(id)
